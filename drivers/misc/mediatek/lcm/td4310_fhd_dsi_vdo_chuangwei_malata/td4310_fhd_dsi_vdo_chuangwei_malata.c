@@ -1,6 +1,7 @@
 /* Reversed by Zoggn@HakonTI 2019. Special for Santin N1
 * Big thanks to LazyCODEr from 4pda. 
 * 29.10.19 - Added functionality to work with lk. Updated MDELAY params.
+* 31.10.19 - Added regulator system.
 */
 
 
@@ -181,6 +182,34 @@ static void lcm_get_params(LCM_PARAMS *params)
 
 }
 
+static void lcm_init_power(void)
+{
+    #ifndef BUILD_LK
+    /* display bias is likely inited in lk !!
+     * for kernel regulator system, we need to enable it first before disable!
+     * so here, if bias is not enabled, we enable it first
+     */
+    display_bias_enable();
+    #endif
+}
+
+static void lcm_suspend_power(void)
+{
+    #ifndef BUILD_LK
+    display_bias_disable();
+    #endif
+}
+
+static void lcm_resume_power(void)
+{
+    #ifndef BUILD_LK
+    SET_RESET_PIN(0);
+    display_bias_enable();
+    #endif
+    
+}
+
+
 static void lcm_init(void)
 {
     SET_RESET_PIN(0);
@@ -310,4 +339,7 @@ LCM_DRIVER td4310_fhd_dsi_vdo_chuangwei_malata_lcm_drv = {
     .compare_id = lcm_compare_id,
     .set_backlight = lcm_setbacklight,
     .switch_mode = lcm_switch_mode,
+    .init_power = lcm_init_power,
+    .resume_power = lcm_resume_power,
+    .suspend_power = lcm_suspend_power
 };
