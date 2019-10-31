@@ -2373,7 +2373,7 @@ static int stk_ps_tune_zero_func_fae(struct stk3x1x_priv *obj)
    // printk("wingtech stk test  2 psi_set = %d >>>>>>>>>>\n",obj->psi_set);	
 	if((obj->psi_set!=0))
 	{
-		if((obj->ps_distance_last == 1))
+		if(obj->ps_distance_last == 1)
 		{
 			ret = stk3x1x_ps_val();
           //  printk("stk test  3 ret= %d >>>>>>>>>>\n",ret);				
