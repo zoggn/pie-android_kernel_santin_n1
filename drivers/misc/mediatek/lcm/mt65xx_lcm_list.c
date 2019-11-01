@@ -45,10 +45,6 @@ LCM_DRIVER *lcm_driver_list[] = {
 	&nt35595_fhd_dsi_cmd_truly_8163_lcm_drv,
 #endif
 
-#if defined(TD4310_FHD_DSI_VDO_CHUANGWEI_MALATA)
-    &td4310_fhd_dsi_vdo_chuangwei_malata_lcm_drv,
-#endif
-    
 #if defined(NT35523_WXGA_DSI_VDO_8163)
 	&nt35523_wxga_dsi_vdo_8163_lcm_drv,
 #endif

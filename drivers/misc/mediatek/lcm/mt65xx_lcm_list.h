@@ -25,7 +25,6 @@ extern LCM_DRIVER r63319_wqhd_dsi_vdo_truly_lcm_drv;
 extern LCM_DRIVER nt35598_wqhd_dsi_vdo_truly_lcm_drv;
 extern LCM_DRIVER lp079x01_lcm_drv;
 extern LCM_DRIVER hx8369_lcm_drv;
-extern LCM_DRIVER td4310_fhd_dsi_vdo_chuangwei_malata_lcm_drv;
 extern LCM_DRIVER hx8369_6575_lcm_drv;
 extern LCM_DRIVER hx8363_6575_dsi_lcm_drv;
 extern LCM_DRIVER hx8363_6575_dsi_hvga_lcm_drv;
