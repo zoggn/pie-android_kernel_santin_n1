@@ -241,7 +241,7 @@ static int mtk_fm_i2s_awb_pcm_open(struct snd_pcm_substream *substream)
 	struct snd_pcm_runtime *runtime = substream->runtime;
 	int ret = 0;
 
-	pr_debug("%s()\n", __func__);
+	pr_warn("mtk_fm_i2s_awb_pcm_open\n");
 	FM_I2S_AWB_Control_context = Get_Mem_ControlT(fm_capture_mem_blk);
 	runtime->hw = mtk_mgrrx_awb_hardware;
 	memcpy((void *)(&(runtime->hw)), (void *)&mtk_mgrrx_awb_hardware,
@@ -266,13 +266,12 @@ static int mtk_fm_i2s_awb_pcm_open(struct snd_pcm_substream *substream)
 		mtk_fm_i2s_awb_pcm_close(substream);
 		return ret;
 	}
-	pr_debug("%s(), return\n", __func__);
+	pr_warn("mtk_fm_i2s_awb_pcm_open return\n");
 	return 0;
 }
 
 static int mtk_fm_i2s_awb_pcm_close(struct snd_pcm_substream *substream)
 {
-	pr_debug("%s()\n", __func__);
 	AudDrv_Emi_Clk_Off();
 	AudDrv_I2S_Clk_Off();
 	AudDrv_Clk_Off();
